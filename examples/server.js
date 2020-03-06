@@ -10,12 +10,6 @@ const compiler = webpack(WebpackConfig)
 
 const router = express.Router()
 
-registerSimpleRouter()
-
-registerBaseRouter()
-
-app.use(router)
-
 app.use(webpackDevMiddleware(compiler, {
   publicPath: '/__build__/',
   stats: {
@@ -30,6 +24,13 @@ app.use(express.static(__dirname))
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+
+
+registerSimpleRouter()
+
+registerBaseRouter()
+
+app.use(router)
 
 const port = process.env.PORT || 8100
 module.exports = app.listen(port, () => {
