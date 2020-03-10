@@ -1,5 +1,37 @@
 import axios from '../../src/index'
 
+interface ResponseData<T = any> {
+  code: number
+  result: T
+  message: string
+}
+
+interface User {
+  name: string
+  age: number
+}
+
+async function getUser<T>() {
+  try {
+    const res = await axios<ResponseData<T>>('/extend/user')
+    return res.data
+  }
+  catch (err) {
+    return console.log(err)
+  }
+}
+
+async function test() {
+  const user = await getUser<User>()
+
+  if (user) {
+    console.log(user.result.name)
+  }
+}
+
+// tslint:disable-next-line: no-floating-promises
+test()
+
 axios({
   url: '/extend/post',
   method: 'post',
