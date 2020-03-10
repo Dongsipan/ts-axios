@@ -1,6 +1,6 @@
 ---
-home: true
-heroImage: https://dongsipan.github.io/ts-axios/ts-logo.png
-actionText: 开始学习 →
-actionLink: https://dongsipan.github.io/ts-axios/chapter1/
+#Learning Typescript & Axios
+<p style="test-aline: center">
+  <img alt="Learning Typescript" src="https://dongsipan.github.io/ts-axios/ts-logo.png">
+</p>
 ---
