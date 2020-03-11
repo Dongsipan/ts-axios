@@ -5,7 +5,15 @@ export interface AxiosRequestConfig {
   params?: any
   headers?: any
   responseType?: XMLHttpRequestResponseType
-  timeout?: number 
+  timeout?: number
+  transformRequest?: AxiosTransformer | AxiosTransformer[]
+  transformResponse?: AxiosTransformer | AxiosTransformer[]
+  
+  [propName: string]: any
+}
+
+export interface AxiosTransformer {
+  (data: any, headers?: any): any
 }
 
 export type Method =
@@ -44,6 +52,7 @@ export interface AxiosError extends Error {
 }
 
 export interface Axios {
+  defaults: AxiosRequestConfig
   interceptors: {
     request: AxiosInterceptorManager<AxiosRequestConfig>
     response: AxiosInterceptorManager<AxiosResponse>
