@@ -51,6 +51,10 @@ export interface AxiosError extends Error {
   isAxiosError: boolean
 }
 
+export interface AxiosStatic extends AxiosInstance{
+  create(config?: AxiosRequestConfig): AxiosInstance
+}
+
 export interface Axios {
   defaults: AxiosRequestConfig
   interceptors: {
